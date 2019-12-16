@@ -1,0 +1,4 @@
+-Đã tạo xong login và hiển thị lên layout EmpCode and Avatar
+- Đã hiển thị đầy đủ Province, District,Ward bằng Ajax Dataserverside và client side
+- Sử dụng Stored Procedure để dùng Datatable serverside 
+- Thêm xóa sửa Dataserverside Province, District và Ward

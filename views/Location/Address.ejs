@@ -1,0 +1,139 @@
+<% include ../layouts/header.ejs %>
+<div class="row">
+      <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>@ViewBag.TitlePage</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" id="btnSetting1">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#" id="btnSetting2">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div>
+                     <br />
+                    <button class="btn btn-success" id="btnCreate"><i class="glyphicon glyphicon-plus"></i> Create New</button>
+                    <button class="btn btn-default" id="btnRefreshTable"><i class="glyphicon glyphicon-refresh"></i> Refresh</button>
+                    <br />
+                    <table id="tableData" class="table table-striped table-bordered" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>AddressID</th>
+                                <th>Address Line</th>
+                                <th>Address Type</th>
+                                <th>WardID</th>
+                                <th>PostalCode</th>
+                                <th>Spatial Location</th>
+                                <th>Modified Date</th>
+                                <th style="width:125px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <th>AddressID</th>
+                                <th>Address Line</th>
+                                <th>Address Type</th>
+                                <th>WardID</th>
+                                <th>PostalCode</th>
+                                <th>Spatial Location</th>
+                                <th>Modified Date</th>
+                                <th style="width:125px;">Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="col-md-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Input Address Form <small id="forName"><font color="red">This is some text!</font></small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                       <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" id="btnSetting1">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#" id="btnSetting2">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <br />
+                  <form class="form-horizontal form-label-left">
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Address Line1  <span class="required">*</span></label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Address Line 1" name ="AddressLine1">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Address Line2  <span class="required">*</span></label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Address Line 2" name ="AddressLine2">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Address Type: <span class="required">*</span></label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select class="select2_single form-control" name="AddressType" id="AddressType" tabindex="-1"></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">WardID  <span class="required">*</span></label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select class="select2_single form-control" name="WardID" id="WardList" tabindex="-1"></select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Postal Code:
+                      </label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" rows="3" placeholder='Postal Code' name="PostalCode"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Spatial Location</label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" placeholder="Input type (x,y)" name ="SpatialLocation">
+                      </div>
+                    </div>
+                     <div class="form-group">
+                        <button type="button" id="btnSave" class="btn btn-primary">Save <i class="glyphicon glyphicon-floppy-disk"></i></button>
+                        <button type="button" class="btn btn-danger" >Cancel <i class="glyphicon glyphicon-trash"></i></button>
+                     </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+</div>
+<% include ../layouts/footer.ejs %>
